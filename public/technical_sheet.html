@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Technical Specifications Sheet — مجوهرات حمزة</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
+:root {
+  --primary: #003F2D;
+  --primary-light: #0B5940;
+  --gold: #C6A34A;
+  --gold-dark: #9E7F2E;
+  --gold-light: #E0BF6F;
+  --cream: #FAF9F5;
+  --bg: #FFFFFF;
+  --text: #1C1C1E;
+  --text-secondary: #5A5A5F;
+  --border: #E8E3D5;
+  --border-subtle: #F0EDE5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 9pt;
+  line-height: 1.5;
+}
+
+@page {
+  size: A4;
+  margin: 10mm 12mm;
+}
+
+.page {
+  width: 100%;
+  max-width: 210mm;
+  margin: 0 auto;
+  page-break-after: always;
+  position: relative;
+}
+
+.page:last-child {
+  page-break-after: avoid;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2.5px solid var(--primary);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-box {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--gold);
+}
+
+.brand h1 {
+  font-size: 14pt;
+  color: var(--primary);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.brand p {
+  font-size: 7.5pt;
+  color: var(--text-secondary);
+}
+
+.doc-info {
+  text-align: left;
+  font-size: 7.5pt;
+  color: var(--text-secondary);
+}
+
+.doc-info strong {
+  color: var(--primary);
+  font-size: 8.5pt;
+}
+
+.badge {
+  display: inline-block;
+  background-color: var(--primary);
+  color: var(--gold);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 7pt;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+/* Headings */
+h2 {
+  font-size: 11pt;
+  color: var(--primary);
+  border-right: 3px solid var(--gold);
+  padding-right: 8px;
+  margin: 12px 0 8px;
+  font-weight: 800;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+th {
+  background-color: var(--primary);
+  color: #FFFFFF;
+  padding: 5px 8px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 8pt;
+  border: 1px solid var(--primary);
+}
+
+td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 8pt;
+  vertical-align: middle;
+}
+
+tr:nth-child(even) td {
+  background-color: var(--cream);
+}
+
+.tag {
+  display: inline-block;
+  background-color: #EAF2EE;
+  color: var(--primary);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 7.5pt;
+  font-weight: 600;
+  margin: 1px;
+}
+
+.tag-gold {
+  background-color: #FBF5E7;
+  color: var(--gold-dark);
+}
+
+/* Grid layout */
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.card {
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 12px;
+  background-color: #FDFCF9;
+  page-break-inside: avoid;
+}
+
+.card h3 {
+  font-size: 8.5pt;
+  color: var(--primary-light);
+  margin-bottom: 4px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+}
+
+/* Architecture Graphic */
+.arch-box {
+  background: linear-gradient(135deg, var(--cream), #EAF2EE);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  margin: 8px 0;
+}
+
+.arch-layer {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 4px 0;
+}
+
+.arch-item {
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--gold);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--primary);
+  min-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.arch-item.primary {
+  background-color: var(--primary);
+  color: var(--gold);
+  border-color: var(--primary);
+}
+
+.arch-arrow {
+  color: var(--gold-dark);
+  font-size: 10pt;
+  margin: 1px 0;
+}
+
+/* Lists */
+ul {
+  padding-right: 14px;
+  font-size: 8pt;
+}
+
+li {
+  margin: 1px 0;
+}
+
+.em-green {
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.em-gold {
+  color: var(--gold-dark);
+  font-weight: 700;
+}
+
+.api-method {
+  padding: 2px 6px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 7.5pt;
+  border-radius: 3px;
+}
+
+.api-get { background-color: #1B7A4A; }
+.api-post { background-color: #01579B; }
+.api-put { background-color: #E65100; }
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-top: 8px;
+  border-top: 1.5px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 7pt;
+  color: var(--text-secondary);
+}
+
+/* Page Break Helper */
+.avoid-break {
+  page-break-inside: avoid;
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div class="page">
+  <div class="header">
+    <div class="brand">
+      <img src="logo-icon.png" alt="مجوهرات حمزة" style="width: 44px; height: 44px; border-radius: 10px; border: 1.5px solid var(--gold); object-fit: cover;">
+      <div>
+        <h1>مجوهرات حمزة</h1>
+        <p>المنصة المتكاملة — كراس المواصفات الفنية</p>
+      </div>
+    </div>
+    <div class="doc-info">
+      <strong>Technical Sheet v1.1</strong><br>
+      التاريخ: 2026-06-10<br>
+      <span class="badge">سري — للاستخدام الداخلي</span>
+    </div>
+  </div>
+
+  <h2>١. نظرة عامة على المشروع</h2>
+  <table>
+    <tr><td style="width:140px;font-weight:700">اسم المشروع</td><td>منصة مجوهرات حمزة المتكاملة (Jewelry Hamza Platform)</td></tr>
+    <tr><td style="font-weight:700">نوع وهيكل النظام</td><td>منصة متكاملة تتكون من: خادم خلفية (API) + لوحة تحكم إدارية + تطبيق موبايل (Monorepo)</td></tr>
+    <tr><td style="font-weight:700">السوق المستهدف</td><td>دولة ليبيا — مدينة طرابلس (قابل للتوسع الإقليمي)</td></tr>
+    <tr><td style="font-weight:700">اللغات والتعريب</td><td>اللغة العربية (كواجهة أساسية للعملاء والإدارة) والإنجليزية لبيانات المنتجات والـ API</td></tr>
+    <tr><td style="font-weight:700">نسبة الإنجاز الفعلية</td><td><span class="em-gold">98%</span> (الخلفية 100% | لوحة التحكم 100% | التطبيق المحمول 98%)</td></tr>
+  </table>
+
+  <h2>٢. هندسة النظام البرمجية (System Architecture)</h2>
+  <div class="arch-box">
+    <div class="arch-layer">
+      <div class="arch-item">
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+        </svg>
+        <span>تطبيق الموبايل</span>
+      </div>
+      <div class="arch-item">
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+        </svg>
+        <span>لوحة التحكم</span>
+      </div>
+    </div>
+    <div class="arch-arrow">▼ تبادل البيانات عبر REST API (HTTP/JSON) ▼</div>
+    <div class="arch-layer">
+      <div class="arch-item primary">
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#C6A34A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>
+        <span>خادم الـ API</span>
+      </div>
+    </div>
+    <div class="arch-arrow">▼ وسيط البيانات Prisma ORM ▼</div>
+    <div class="arch-layer">
+      <div class="arch-item">
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+          <path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"></path>
+        </svg>
+        <span>قاعدة البيانات</span>
+      </div>
+      <div class="arch-item">
+        <svg viewBox="0 0 24 24" width="12" height="12" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        </svg>
+        <span>مستودع الصور</span>
+      </div>
+    </div>
+  </div>
+
+  <h2>٣. التقنيات والبيئة البرمجية (Tech Stack)</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>
+        <svg viewBox="0 0 24 24" width="13" height="13" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </svg>خادم الـ API (الخلفية)
+      </h3>
+      <span class="tag">Express.js 4.19</span>
+      <span class="tag">TypeScript 5.4</span>
+      <span class="tag">Prisma 5.12</span>
+      <span class="tag">SQLite (Dev) / PG (Prod)</span>
+      <span class="tag">JWT Auth & bcryptjs</span>
+      <span class="tag">Multer Storage</span>
+      <span class="tag">Swagger UI Docs</span>
+    </div>
+    <div class="card">
+      <h3>
+        <svg viewBox="0 0 24 24" width="13" height="13" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+        </svg>لوحة تحكم الإدارة
+      </h3>
+      <span class="tag">React 19.2</span>
+      <span class="tag">Vite 8.0</span>
+      <span class="tag">TypeScript 6.0</span>
+      <span class="tag">TailwindCSS 4.3</span>
+      <span class="tag">Recharts 3.8</span>
+      <span class="tag">Lucide Icons</span>
+      <span class="tag">React Router 7</span>
+    </div>
+    <div class="card">
+      <h3>
+        <svg viewBox="0 0 24 24" width="13" height="13" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;">
+          <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
+          <line x1="12" y1="18" x2="12.01" y2="18"></line>
+        </svg>تطبيق الموبايل للعملاء
+      </h3>
+      <span class="tag">Expo SDK 56</span>
+      <span class="tag">React Native 0.85</span>
+      <span class="tag">TypeScript 6.0</span>
+      <span class="tag">React Navigation 7</span>
+      <span class="tag">Ionicons System</span>
+      <span class="tag">Expo Picker & FastImage</span>
+    </div>
+    <div class="card">
+      <h3>
+        <svg viewBox="0 0 24 24" width="13" height="13" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;">
+          <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.34735 19.4998 5.48512 20.2464 5.2152 20.8903L5.05072 21.2828C4.85246 21.7558 5.29743 22.2515 5.79511 22.0911L6.71181 21.7957C7.32049 21.5995 7.98971 21.7503 8.45543 22.1891C9.51897 22.7196 10.725 22 12 22Z"></path>
+        </svg>الهوية البصرية والـ UI
+      </h3>
+      <span class="tag-gold tag">الأخضر الزمردي #003F2D</span>
+      <span class="tag-gold tag">الذهبي الملكي #C6A34A</span>
+      <span class="tag-gold tag">البيج الفاخر #FAF9F5</span>
+      <span class="tag">دعم كامل لاتجاه الخط العربي RTL</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>مجوهرات حمزة — كراس المواصفات الفنية والتقنية v1.1</span>
+    <span>صفحة ١ من ٣</span>
+  </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <div class="header">
+    <div class="brand">
+      <img src="logo-icon.png" alt="مجوهرات حمزة" style="width: 44px; height: 44px; border-radius: 10px; border: 1.5px solid var(--gold); object-fit: cover;">
+      <div>
+        <h1>مجوهرات حمزة</h1>
+        <p>قاعدة البيانات ونقاط تكامل الـ API</p>
+      </div>
+    </div>
+    <div class="doc-info">
+      <strong>الصفحة ٢</strong>
+    </div>
+  </div>
+
+  <h2>٤. هيكلية ومخطط قاعدة البيانات (Database Schema)</h2>
+  <table>
+    <tr><th>الجدول</th><th>الحقول والخصائص الرئيسية</th><th>العلاقات والربط</th></tr>
+    <tr><td class="em-green">User</td><td>الاسم، الهاتف (فريد)، البريد، كلمة المرور المشفرة، الدور (Role)، الحركية</td><td>← Favorite[], Appointments[]</td></tr>
+    <tr><td class="em-green">Category</td><td>اسم عربي/إنجليزي، رابط الصورة، ترتيب الفرز، التنشيط</td><td>← Product[]</td></tr>
+    <tr><td class="em-green">Product</td><td>الاسم والوصف باللغتين، العيار، الوزن، التكلفة، السعر التقديري، نوع الفصوص</td><td>← Category, ProductImage[], Favorite[]</td></tr>
+    <tr><td class="em-green">ProductImage</td><td>رابط الصورة على الخادم، ترتيب الفرز للصورة</td><td>← Product (علاقة رأس بأطراف)</td></tr>
+    <tr><td class="em-green">GoldPrice</td><td>أسعار عيار 18 وعيار 21 وعيار 24 الحالية، تاريخ التعديل</td><td>تحديث ديناميكي يؤثر على أسعار المنتجات</td></tr>
+    <tr><td class="em-green">Branch</td><td>اسم الفرع، العنوان الجغرافي، الهاتف، رقم الواتساب، رابط خرائط Google</td><td>← Appointment[], CustomOrder[]</td></tr>
+    <tr><td class="em-green">Appointment</td><td>اسم العميل، رقم الهاتف، التاريخ، التوقيت، سبب الموعد، الحالة</td><td>← Branch (حجز بموقع محدد)</td></tr>
+    <tr><td class="em-green">CustomOrder</td><td>بيانات العميل، نوع القطعة، الوصف، الميزانية، الصورة المرفقة، الحالة</td><td>← Branch (استلام من فرع محدد)</td></tr>
+    <tr><td class="em-green">Favorite</td><td>معرف المستخدم ومعرف المنتج (قيد مركب فريد للقطع المفضلة)</td><td>← User, Product</td></tr>
+    <tr><td class="em-green">Notification</td><td>العنوان، محتوى الرسالة، نوع الإرسال، معرف الهدف، تاريخ الإرسال</td><td>نظام الإشعارات الفورية (Push)</td></tr>
+  </table>
+
+  <h2>٥. نظام الأدوار والصلاحيات (RBAC)</h2>
+  <table>
+    <tr><th style="width:180px">الدور المخصص</th><th>النطاق وصلاحيات العمليات المتاحة</th></tr>
+    <tr><td><span class="tag">SUPER_ADMIN</span></td><td>التحكم الكامل بالنظام، إدارة حسابات الموظفين، التقارير والإحصائيات المالية المتقدمة.</td></tr>
+    <tr><td><span class="tag">PRODUCTS_MANAGER</span></td><td>صلاحية كاملة لإضافة وتعديل المنتجات، رفع الصور، إدارة التصنيفات وتحديث أسعار عيارات الذهب.</td></tr>
+    <tr><td><span class="tag">ORDERS_MANAGER</span></td><td>إدارة ومتابعة طلبات التفصيل الخاصة وحجوزات العملاء وتعديل حالات الطلبات.</td></tr>
+    <tr><td><span class="tag">CUSTOMER</span></td><td>تصفح المعرض، إضافة للمفضلة، حجز مواعيد الصيانة والمعاينة، وطلب تفصيل مصوغات خاصة.</td></tr>
+  </table>
+
+  <h2>٦. نقاط الـ API الأساسية لتبادل البيانات (API Endpoints)</h2>
+  <table>
+    <tr><th style="width:75px">البروتوكول</th><th>المسار البرمجي (Route Path)</th><th>العملية والغرض الوظيفي</th></tr>
+    <tr><td><span class="api-method api-post">POST</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/auth/login</td><td>مصادقة المستخدم وإصدار رمز التمكين JWT</td></tr>
+    <tr><td><span class="api-method api-post">POST</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/auth/register</td><td>إنشاء حساب مستخدم جديد وتوثيق الهاتف</td></tr>
+    <tr><td><span class="api-method api-get">GET</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/products</td><td>جلب المنتجات مع الفلترة حسب الوزن، العيار، الفئة، والبحث</td></tr>
+    <tr><td><span class="api-method api-post">POST</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/products</td><td>إضافة قطعة جديدة للمعرض مع رفع الصور المتعددة (خاص بالمسؤول)</td></tr>
+    <tr><td><span class="api-method api-get">GET</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/categories</td><td>جلب قائمة الفئات والتصنيفات النشطة بالتطبيق</td></tr>
+    <tr><td><span class="api-method api-get">GET</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/gold-prices/current</td><td>جلب أسعار الذهب اللحظية المعتمدة لعيارات 18/21/24</td></tr>
+    <tr><td><span class="api-method api-put">PUT</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/gold-prices</td><td>تعديل أسعار جرامات الذهب وتحديث الأسعار التقديرية بالمعرض فوراً</td></tr>
+    <tr><td><span class="api-method api-post">POST</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/appointments</td><td>إنشاء حجز موعد جديد لمعاينة أو صيانة في فرع محدد</td></tr>
+    <tr><td><span class="api-method api-post">POST</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/custom-orders</td><td>تقديم طلب تفصيل خاص بالعميل مع رفع نموذج أو صورة للتصميم</td></tr>
+    <tr><td><span class="api-method api-get">GET</span></td><td style="font-family:monospace;direction:ltr;text-align:left">/api/admin/dashboard</td><td>لوحة الإحصائيات (أعداد المنتجات، الحجوزات، الطلبات، والرسوم البيانية)</td></tr>
+  </table>
+
+  <div class="footer">
+    <span>مجوهرات حمزة — كراس المواصفات الفنية والتقنية v1.1</span>
+    <span>صفحة ٢ من ٣</span>
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <div class="header">
+    <div class="brand">
+      <img src="logo-icon.png" alt="مجوهرات حمزة" style="width: 44px; height: 44px; border-radius: 10px; border: 1.5px solid var(--gold); object-fit: cover;">
+      <div>
+        <h1>مجوهرات حمزة</h1>
+        <p>الواجهات والتشغيل وبوابات الدفع الإلكتروني</p>
+      </div>
+    </div>
+    <div class="doc-info">
+      <strong>الصفحة ٣</strong>
+    </div>
+  </div>
+
+  <h2>٧. شاشات لوحة تحكم الإدارة (React Web — 8 صفحات)</h2>
+  <table>
+    <tr><th style="width:140px">الصفحة الرئيسية</th><th>الغرض والعمليات الإدارية المتاحة</th></tr>
+    <tr><td class="em-green">الرئيسية (Dashboard)</td><td>لوحة التحكم الشاملة للنشاط والمؤشرات الرئيسية للحجوزات والمبيعات مع رسوم بيانية توضيحية.</td></tr>
+    <tr><td class="em-green">إدارة المنتجات</td><td>إجراء عمليات الإضافة والتعديل والأرشفة للمصوغات، ورفع صور متعددة لكل منتج بدقة عالية.</td></tr>
+    <tr><td class="em-green">إدارة التصنيفات</td><td>تصنيف المنتجات (أطقم، خواتم، أساور، إلخ) وتحديث صورها التعبيرية وترتيب عرضها.</td></tr>
+    <tr><td class="em-green">تحديث أسعار الذهب</td><td>تحديث لحظي لأسعار جرام الذهب لعيارات 18، 21، 24 لضمان دقة التسعير التلقائي.</td></tr>
+    <tr><td class="em-green">إدارة الحجوزات والطلبات</td><td>مراقبة وجدولة مواعيد الصيانة وطلبات التفصيل الخاصة، ومعاينة صور النماذج المرفوعة من العملاء.</td></tr>
+  </table>
+
+  <h2>٨. شاشات تطبيق الموبايل (Expo Application — 9 شاشات)</h2>
+  <table>
+    <tr><th style="width:140px">الشاشة البرمجية</th><th>المحتوى وتجربة المستخدم (UX)</th></tr>
+    <tr><td class="em-green">شاشات الترحيب والتعريف</td><td>ثلاث لوحات عرض متتالية توضح فخامة وجودة مصوغات حمزة مع انتقال انسيابي.</td></tr>
+    <tr><td class="em-green">الرئيسية (Home Panel)</td><td>عرض التصنيفات، شريط أسعار الذهب الحي لعيارات اليوم، والقطع الأكثر تميزاً وجاذبية.</td></tr>
+    <tr><td class="em-green">طلب تفصيل خاص</td><td>معالج متكامل من 6 خطوات يتيح للعميل إرسال مواصفات القطعة المطلوبة وصورتها.</td></tr>
+    <tr><td class="em-green">حجز موعد فرع</td><td>معالج حجز مواعيد الصيانة والمعاينة واختيار الفرع الأقرب في مدينة طرابلس.</td></tr>
+    <tr><td class="em-green">الحاسبة التفاعلية</td><td>أداة ذكية تمكن العميل من حساب القيمة التقديرية للذهب بناءً على الوزن والعيار المختار وسعر السوق الحالي.</td></tr>
+  </table>
+
+  <h2>٩. متطلبات بيئة التشغيل والخادم (Deployment Requirements)</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>
+        <svg viewBox="0 0 24 24" width="13" height="13" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;">
+          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+          <line x1="6" y1="6" x2="6.01" y2="6"></line>
+        </svg>بيئة تشغيل الخلفية (Backend)
+      </h3>
+      <ul style="padding-right: 14px;">
+        <li>تثبيت بيئة تشغيل Node.js إصدار 18 فما فوق.</li>
+        <li>المنفذ الافتراضي لتشغيل خادم الـ API: <code>5000</code>.</li>
+        <li>الربط بقاعدة بيانات PostgreSQL للإنتاج لضمان الحماية والسرعة.</li>
+        <li>تشغيل الأداة المخصصة للتحويل التلقائي لقاعدة البيانات.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>
+        <svg viewBox="0 0 24 24" width="13" height="13" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;">
+          <rect x="2" y="3" width="12" height="12" rx="2"></rect>
+          <rect x="12" y="7" width="10" height="14" rx="2"></rect>
+        </svg>لوحة الإدارة وتطبيق الجوال
+      </h3>
+      <ul style="padding-right: 14px;">
+        <li>لوحة التحكم: منفذ <code>5173</code> على خادم استضافة ثابت.</li>
+        <li>التطبيق المحمول: منصة Expo CLI للتشغيل والتطوير.</li>
+        <li>توليد حزم التوزيع والتحميل لمتاجر Android (APK) وiOS.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>١٠. تكامل بوابات الدفع الإلكتروني المحلية (Local Payment Gateways)</h2>
+  <div class="grid2" style="margin-bottom: 25px;">
+    <div class="card">
+      <h3>
+        <svg viewBox="0 0 24 24" width="13" height="13" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+          <line x1="1" y1="10" x2="23" y2="10"></line>
+        </svg>بوابة دفع بلوتو (Plutu)
+      </h3>
+      <p style="font-size:7.5pt;color:var(--text-secondary);margin-bottom:4px">بوابة دفع محلية متكاملة لربط واجهات الدفع المباشر بالدينار الليبي:</p>
+      <ul style="padding-right: 14px; font-size: 7.5pt;">
+        <li>دعم بطاقات الدفع المحلية الصادرة عن شركة تداول (Tadawul).</li>
+        <li>دعم محافظ الهاتف النقال مثل (محفظة سداد المصرفية، إدفع لي).</li>
+        <li>ربط آمن كلياً عبر بروتوكول REST API المشفر بالكامل.</li>
+        <li>موقع الخدمة: <span class="em-gold">plutu.ly</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>
+        <svg viewBox="0 0 24 24" width="13" height="13" stroke="#003F2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 5px;">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>شركة تداول للتقنية (Tadawul)
+      </h3>
+      <p style="font-size:7.5pt;color:var(--text-secondary);margin-bottom:4px">المزود الأكبر لشبكات الدفع والخدمات المصرفية في السوق الليبي:</p>
+      <ul style="padding-right: 14px; font-size: 7.5pt;">
+        <li>إصدار وإدارة بطاقات الدفع المصرفية المحلية (بطاقات الخصم).</li>
+        <li>تسوية وإيداع المعاملات المالية لمعارض ومتاجر الذهب.</li>
+        <li>تكامل مباشر مع منظومة الموزع الوطني والمصارف الليبية.</li>
+        <li>موقع الخدمة: <span class="em-gold">tdsp.ly</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="padding:10px 14px;background:linear-gradient(135deg,#003F2D,#0B5940);border-radius:8px;color:#fff;text-align:center;margin-top: 10px;page-break-inside:avoid">
+    <div style="font-size:12pt;font-weight:900;color:#C6A34A;margin-bottom:2px">مجوهرات حمزة — Jewelry Hamza</div>
+    <div style="font-size:8pt;opacity:0.8">طرابلس، ليبيا | جميع الحقوق محفوظة © 2026</div>
+  </div>
+
+  <div class="footer">
+    <span>مجوهرات حمزة — كراس المواصفات الفنية والتقنية v1.1</span>
+    <span>صفحة ٣ من ٣</span>
+  </div>
+</div>
+
+</body>
+</html>
