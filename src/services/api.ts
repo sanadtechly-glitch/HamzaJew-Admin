@@ -101,6 +101,59 @@ export interface CustomOrder {
   createdAt: string;
 }
 
+export interface OrderItem {
+  id: string;
+  orderId: string;
+  productId: string;
+  product?: Product;
+  quantity: number;
+  pricePerGram: number;
+  makingCostPerGram: number;
+  karat: number;
+  weight: number;
+  totalItemPrice: number;
+}
+
+export interface Payment {
+  id: string;
+  orderId: string;
+  amount: number;
+  paymentMethod: 'COD' | 'BANK_TRANSFER' | 'CARD';
+  paymentStatus: 'PENDING' | 'COMPLETED' | 'FAILED';
+  transactionId?: string;
+  receiptImage?: string;
+  createdAt: string;
+}
+
+export interface Order {
+  id: string;
+  userId: string;
+  user?: {
+    id: string;
+    name: string;
+    phone: string;
+    email?: string;
+  };
+  customerName: string;
+  phone: string;
+  deliveryType: 'DELIVERY' | 'PICKUP';
+  shippingAddress?: string;
+  branchId?: string;
+  branch?: Branch;
+  goldPriceId: string;
+  goldPrice?: GoldPrice;
+  totalPrice: number;
+  totalWeight: number;
+  totalMakingCost: number;
+  status: 'PENDING' | 'PAID' | 'SHIPPED' | 'COMPLETED' | 'CANCELLED';
+  paymentMethod: 'COD' | 'BANK_TRANSFER' | 'CARD';
+  paymentStatus: 'PENDING' | 'COMPLETED' | 'FAILED';
+  items?: OrderItem[];
+  payments?: Payment[];
+  createdAt: string;
+}
+
+
 export interface DashboardStats {
   counts: {
     products: number;
@@ -285,6 +338,14 @@ export const api = {
   // Reviews (read-only + delete for admin)
   getProductReviews: async (productId: string) => {
     return request<any[]>(`/api/reviews/${productId}`);
+  },
+
+  // Orders (Admin)
+  getAdminOrders: async () => {
+    return request<Order[]>('/api/orders/admin/all');
+  },
+  updateOrderStatus: async (id: string, status: string, paymentStatus?: string) => {
+    return request<{ success: boolean; order: Order }>(`/api/orders/admin/${id}/status`, 'PUT', { status, paymentStatus });
   },
 };
 

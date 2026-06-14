@@ -12,7 +12,8 @@ import {
   User as UserIcon,
   Menu,
   X,
-  Star
+  Star,
+  ShoppingBag
 } from 'lucide-react';
 
 interface LayoutProps {
@@ -29,9 +30,10 @@ const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) =>
     { id: 'dashboard', name: 'لوحة الإحصائيات', icon: LayoutDashboard },
     { id: 'products', name: 'إدارة المنتجات', icon: Gem },
     { id: 'categories', name: 'التصنيفات', icon: Layers },
+    { id: 'orders', name: 'طلبات الشراء', icon: ShoppingBag },
+    { id: 'custom-orders', name: 'الطلبات الخاصة', icon: Sparkles },
     { id: 'gold-prices', name: 'أسعار الذهب', icon: TrendingUp },
     { id: 'appointments', name: 'الحجوزات', icon: CalendarCheck2 },
-    { id: 'custom-orders', name: 'الطلبات الخاصة', icon: Sparkles },
     { id: 'branches', name: 'الفروع', icon: MapPin },
     { id: 'reviews', name: 'التقييمات', icon: Star },
   ];

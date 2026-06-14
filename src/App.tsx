@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Products from './pages/Products';
 import Categories from './pages/Categories';
+import Orders from './pages/Orders';
 import GoldPrices from './pages/GoldPrices';
 import Appointments from './pages/Appointments';
 import CustomOrders from './pages/CustomOrders';
@@ -43,6 +44,8 @@ const AdminAppContent: React.FC = () => {
         return <Products />;
       case 'categories':
         return <Categories />;
+      case 'orders':
+        return <Orders />;
       case 'gold-prices':
         return <GoldPrices />;
       case 'appointments':
